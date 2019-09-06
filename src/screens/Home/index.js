@@ -1,6 +1,7 @@
 import React from 'react';
-import {View, Text, TouchableOpacity} from 'react-native';
+import {View, Text, TouchableOpacity, Alert} from 'react-native';
 import firebase from 'react-native-firebase';
+import {Header} from '../../components';
 
 export class Home extends React.Component {
   constructor(props) {
@@ -8,25 +9,17 @@ export class Home extends React.Component {
     this.state = {};
   }
 
-  handleLogOut = () => {
-    console.log('asdhgasqw');
-    firebase
-      .auth()
-      .signOut()
-      .then(res => {
-        console.log('asdhgas', res);
-        this.props.navigation.navigate('LoginScreen');
-      })
-      .catch(err => {});
+  handleBackButton = () => {
+    this.props.navigation.openDrawer();
   };
 
   render() {
     return (
       <View style={{flex: 1}}>
-        <Text>Home Screen</Text>
-        <TouchableOpacity onPress={() => this.handleLogOut()}>
-          <Text>LogOut</Text>
-        </TouchableOpacity>
+        <Header headerText="Home" onBackPress={() => this.handleBackButton()} />
+        <View style={{flex: 1}}>
+          <Text>Home Screen</Text>
+        </View>
       </View>
     );
   }

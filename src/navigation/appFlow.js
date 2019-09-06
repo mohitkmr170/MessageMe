@@ -1,16 +1,20 @@
-import {Easing} from 'react-native';
-import {createAppContainer} from 'react-navigation';
+import {Easing, Dimensions} from 'react-native';
+import {createAppContainer, create} from 'react-navigation';
 import {createStackNavigator} from 'react-navigation-stack';
+import {createDrawerNavigator} from 'react-navigation-drawer';
 
-import {Login, Home} from '../screens';
+import {Login, Home, SideBar, UserProfile} from '../screens';
 
-const AppNavigator = createStackNavigator(
+const AppStackNavigator = createStackNavigator(
   {
     LoginScreen: {
       screen: Login,
     },
     HomeScreen: {
       screen: Home,
+    },
+    UserProfileScreen: {
+      screen: UserProfile,
     },
   },
   {
@@ -21,6 +25,18 @@ const AppNavigator = createStackNavigator(
         duration: 100,
       },
     }),
+  },
+);
+
+const AppNavigator = createDrawerNavigator(
+  {
+    AppStackNavigator: {
+      screen: AppStackNavigator,
+    },
+  },
+  {
+    initialRouteName: 'AppStackNavigator',
+    contentComponent: SideBar,
   },
 );
 

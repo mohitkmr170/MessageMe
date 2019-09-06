@@ -28,6 +28,13 @@ target 'MessageMe' do
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
 
   pod 'RNGestureHandler', :path => '../node_modules/react-native-gesture-handler'
+  # Required by RNFirebase
+pod 'Firebase/Core', '~> 6.3.0'
+pod 'RNFirebase', :path => '../node_modules/react-native-firebase/ios'
+pod 'Firebase/Auth'
+pod 'Firebase/Database'
+
+  # pod 'RNFirebase', :path => '../node_modules/react-native-firebase'
 
   target 'MessageMeTests' do
     inherit! :search_paths

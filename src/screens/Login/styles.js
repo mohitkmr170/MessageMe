@@ -21,10 +21,19 @@ export const styles = StyleSheet.create({
     borderRadius: 8,
   },
   phoneInputContainer: {
-    borderBottomWidth: 0.3,
+    borderBottomWidth: 1,
     fontSize: 18,
     paddingVertical: 4,
     width: '70%',
+  },
+  shadowCardContainer: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderColor: '#ECEBEB',
+    borderWidth: 1,
+    height: '80%',
+    width: '100%',
+    borderRadius: 8,
   },
   numberContainer: {
     flexDirection: 'row',

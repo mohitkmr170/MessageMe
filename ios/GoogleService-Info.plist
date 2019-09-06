@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>981978226078-1qoiim8gmnr83nkdm35gekakffmf8e2p.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.981978226078-1qoiim8gmnr83nkdm35gekakffmf8e2p</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAP9107QcPzCRHmqS692Oh0gD0Gt7t1VUc</string>
+	<key>GCM_SENDER_ID</key>
+	<string>981978226078</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>org.reactjs.native.example.MessageMe</string>
+	<key>PROJECT_ID</key>
+	<string>messageme-59576</string>
+	<key>STORAGE_BUCKET</key>
+	<string>messageme-59576.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:981978226078:ios:c6dc5a27e05635b3</string>
+	<key>DATABASE_URL</key>
+	<string>https://messageme-59576.firebaseio.com</string>
+</dict>
+</plist>

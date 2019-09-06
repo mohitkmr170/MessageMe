@@ -1,6 +1,7 @@
 import React from 'react';
 import {View, Text, TouchableOpacity, Alert} from 'react-native';
 import firebase from 'react-native-firebase';
+import Contacts from 'react-native-contacts';
 import {Header} from '../../components';
 
 export class Home extends React.Component {
@@ -14,6 +15,7 @@ export class Home extends React.Component {
   };
 
   render() {
+    console.log('contacts123', this.state);
     return (
       <View style={{flex: 1}}>
         <Header headerText="Home" onBackPress={() => this.handleBackButton()} />

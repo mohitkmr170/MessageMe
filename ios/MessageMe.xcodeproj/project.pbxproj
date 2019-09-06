@@ -14,7 +14,7 @@
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		14700FAF5741424593965FA7 /* FontAwesome5_Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AAD66B54AC3944D4ABA606C3 /* FontAwesome5_Regular.ttf */; };
-		1ADA06AE9B01C6AE5AD8725C /* libPods-MessageMe.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C405B61C6AF6086DB5B397F2 /* libPods-MessageMe.a */; };
+		1ADA06AE9B01C6AE5AD8725C /* libPods-MessageMe.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C405B61C6AF6086DB5B397F2 /* libPods-MessageMe.a */; settings = {ATTRIBUTES = (Required, ); }; };
 		1E5DD83DFDAA49FE81BEF4F4 /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 79CB10DB42EB4DEBB92CD0E0 /* SimpleLineIcons.ttf */; };
 		225638BA084B49A6987DB178 /* Fontisto.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6FDB88C5CE9740DBA61A2CE4 /* Fontisto.ttf */; };
 		2D02E4BC1E0B4A80006451C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };

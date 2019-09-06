@@ -36,7 +36,7 @@ export class Login extends React.Component {
   componentDidMount = () => {
     this.authSubscription = firebase.auth().onAuthStateChanged(user => {
       this.setState({loading: false, user});
-      if (user) this.props.navigation.navigate('HomeScreen');
+      if (user) this.props.navigation.navigate('TabNavigatorScreen');
     });
   };
 
@@ -67,7 +67,7 @@ export class Login extends React.Component {
     confirmResult
       .confirm(this.state.code)
       .then(res => {
-        this.props.navigation.navigate('HomeScreen');
+        this.props.navigation.navigate('TabNavigatorScreen');
       })
       .catch(err => {});
   };

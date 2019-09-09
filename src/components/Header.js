@@ -1,6 +1,8 @@
 import React from 'react';
-import {View, Text, TouchableOpacity} from 'react-native';
+import {View, Text, TouchableOpacity, ImageBackground} from 'react-native';
 import Icon from 'react-native-vector-icons/AntDesign';
+import {headerBanner} from '../assets/index';
+import {COLOR} from '../config/color';
 
 export class Header extends React.Component {
   constructor(props) {
@@ -10,22 +12,29 @@ export class Header extends React.Component {
   componentDidMount = () => {};
   render() {
     return (
-      <View
+      <ImageBackground
+        source={headerBanner}
         style={{
           flexDirection: 'row',
           justifyContent: 'space-between',
           padding: 12,
         }}>
         <TouchableOpacity onPress={this.props.onBackPress}>
-          <Icon name="left" size={24} />
+          <Icon
+            name={this.props.headerText === 'Home' ? 'bars' : 'left'}
+            size={24}
+            color={COLOR.white}
+          />
         </TouchableOpacity>
         {this.props.headerText && (
-          <Text style={{fontSize: 24}}>{this.props.headerText}</Text>
+          <Text style={{fontSize: 24, color: COLOR.white}}>
+            {this.props.headerText}
+          </Text>
         )}
         <TouchableOpacity>
-          <Icon name="wechat" size={24} />
+          <Icon name="wechat" size={24} color={COLOR.white} />
         </TouchableOpacity>
-      </View>
+      </ImageBackground>
     );
   }
 }

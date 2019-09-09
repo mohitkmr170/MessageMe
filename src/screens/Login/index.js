@@ -67,7 +67,7 @@ export class Login extends React.Component {
     confirmResult
       .confirm(this.state.code)
       .then(res => {
-        this.props.navigation.navigate('TabNavigatorScreen');
+        this.props.navigation.navigate('SignUpScreen');
       })
       .catch(err => {});
   };

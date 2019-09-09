@@ -6,7 +6,7 @@ import {createStackNavigator} from 'react-navigation-stack';
 import {createDrawerNavigator} from 'react-navigation-drawer';
 import {createBottomTabNavigator} from 'react-navigation-tabs';
 
-import {Login, Home, SideBar, UserProfile, SignUp} from '../screens';
+import {Login, Home, SideBar, UserProfile, SignUp, Chat} from '../screens';
 import {COLOR} from '../config/color';
 
 const TabNavigator = createBottomTabNavigator(
@@ -54,6 +54,9 @@ const AppStackNavigator = createStackNavigator(
     },
     SignUpScreen: {
       screen: SignUp,
+    },
+    ChatScreen: {
+      screen: Chat,
     },
   },
   {

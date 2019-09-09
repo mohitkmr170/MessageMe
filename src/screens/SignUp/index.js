@@ -39,6 +39,7 @@ export class SignUp extends React.Component {
           name: this.state.name,
           email: this.state.email,
           phone: firebase.auth().currentUser.phoneNumber,
+          uid: currUser,
         })
         .then(() => this.props.navigation.navigate('TabNavigatorScreen'))
         .catch(err => {});

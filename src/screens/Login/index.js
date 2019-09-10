@@ -16,6 +16,7 @@ import Toast, {DURATION} from 'react-native-easy-toast';
 import {COLOR} from '../../config/color';
 import CodeInput from 'react-native-confirmation-code-input';
 import firebase from 'react-native-firebase';
+import * as Animatable from 'react-native-animatable';
 
 export class Login extends React.Component {
   constructor(props) {
@@ -114,13 +115,18 @@ export class Login extends React.Component {
                 </View>
               </View>
             ) : (
-              <View style={styles.shadowCardContainer}>
+              <Animatable.View
+                ref={ref => (this.view = ref)}
+                animation="bounceInRight"
+                duration={1000}
+                style={styles.shadowCardContainer}>
                 <Text
                   style={{marginTop: 24, fontSize: 24, color: COLOR.grayMain}}>
                   Enter your OTP!
                 </Text>
                 <CodeInput
                   secureTextEntry
+                  keyboardType="numeric"
                   activeColor={COLOR.primary}
                   inactiveColor={COLOR.primary}
                   autoFocus={true}
@@ -140,6 +146,12 @@ export class Login extends React.Component {
                   }}
                   codeInputStyle={{borderWidth: 1.5}}
                 />
+                <Text>
+                  OTP sent to{' '}
+                  <Text style={{color: COLOR.primary}}>
+                    {this.state.phoneNumber}
+                  </Text>
+                </Text>
                 <TouchableOpacity
                   onPress={() =>
                     this.handleOtpVerification(this.state.confirmResult)
@@ -149,7 +161,7 @@ export class Login extends React.Component {
                     VERIFY
                   </Text>
                 </TouchableOpacity>
-              </View>
+              </Animatable.View>
             )}
           </View>
 

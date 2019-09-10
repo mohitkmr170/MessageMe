@@ -5,41 +5,45 @@ import firebase from 'react-native-firebase';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Icons from 'react-native-vector-icons/AntDesign';
 import {COLOR} from '../../config/color';
+import {connect} from 'react-redux';
+import {getUser} from '../../store/reducers';
+import {get} from 'lodash';
+import {appConstants} from '../../constants/appConstants';
 
-const W = Dimensions.get('window').width / 2;
-export class UserProfile extends React.Component {
+const W = appConstants.screenWidth / 2;
+class UnconnectedUserProfile extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      currUserDetails: null,
+      loading: true,
     };
   }
 
-  componentDidMount = () => {
-    firebase
-      .database()
-      .ref('users/' + firebase.auth().currentUser.uid)
-      .on('value', snap => {
-        this.setState({currUserDetails: snap.val()});
-      });
+  UNSAFE_componentWillMount = async () => {
+    const {getUser} = this.props;
+    const body = {
+      userId: firebase.auth().currentUser.uid,
+    };
+    await getUser(body);
+    this.setState({loading: false});
   };
 
   handleBackButton = () => {
     this.props.navigation.goBack();
   };
   render() {
+    const {getUserResponse} = this.props;
     return (
       <View style={{flex: 1}}>
         <Header
           headerText="Profile"
           onBackPress={() => this.handleBackButton()}
         />
-        {this.state.currUserDetails ? (
+        {!this.state.loading ? (
           <View style={{flex: 1, margin: 20}}>
             <Image
               source={{
-                uri:
-                  'https://previews.123rf.com/images/triken/triken1608/triken160800028/61320729-male-avatar-profile-picture-default-user-avatar-guest-avatar-simply-human-head-vector-illustration-i.jpg',
+                uri: appConstants.defaultProfileImage,
               }}
               style={{
                 height: W,
@@ -59,7 +63,7 @@ export class UserProfile extends React.Component {
                     justifyContent: 'space-between',
                   }}>
                   <Text style={{fontSize: 18, width: '85%'}}>
-                    {this.state.currUserDetails.name}
+                    {get(getUserResponse, 'name', 'NA')}
                   </Text>
                   <Icon
                     name="pencil"
@@ -81,7 +85,7 @@ export class UserProfile extends React.Component {
                     justifyContent: 'space-between',
                   }}>
                   <Text style={{fontSize: 18, width: '85%'}}>
-                    {this.state.currUserDetails.phone}
+                    {get(getUserResponse, 'phone', 'NA')}
                   </Text>
                   <Icon
                     name="pencil"
@@ -103,7 +107,7 @@ export class UserProfile extends React.Component {
                     justifyContent: 'space-between',
                   }}>
                   <Text style={{fontSize: 18, width: '85%'}}>
-                    {this.state.currUserDetails.email}
+                    {get(getUserResponse, 'email', 'NA')}
                   </Text>
                   <Icon
                     name="pencil"
@@ -129,3 +133,15 @@ export class UserProfile extends React.Component {
     );
   }
 }
+
+const mapStateToProps = state => ({
+  getUserResponse: state.getUser.response,
+});
+const bindActions = dispatch => ({
+  getUser: data => dispatch(getUser.fetchCall(data)),
+});
+
+export const UserProfile = connect(
+  mapStateToProps,
+  bindActions,
+)(UnconnectedUserProfile);

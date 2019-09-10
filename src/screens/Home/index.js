@@ -10,6 +10,7 @@ import {
 import firebase from 'react-native-firebase';
 import {Header} from '../../components';
 import {COLOR} from '../../config/color';
+import {appConstants} from '../../constants/appConstants';
 
 export class Home extends React.Component {
   constructor(props) {
@@ -56,8 +57,7 @@ export class Home extends React.Component {
           <TouchableOpacity onPress={() => Alert.alert('Image')}>
             <Image
               source={{
-                uri:
-                  'https://previews.123rf.com/images/triken/triken1608/triken160800028/61320729-male-avatar-profile-picture-default-user-avatar-guest-avatar-simply-human-head-vector-illustration-i.jpg',
+                uri: appConstants.defaultProfileImage,
               }}
               style={{height: 48, width: 48, borderRadius: 24}}
             />

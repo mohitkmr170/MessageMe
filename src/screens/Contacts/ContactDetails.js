@@ -11,6 +11,13 @@ export class ContactDetail extends React.Component {
     super(props);
     this.state = {};
   }
+
+  componentWillReceiveProps = nextProps => {
+    if (nextProps && this.props.showContactDetail) {
+      console.log('Contact changed!');
+    }
+  };
+
   render() {
     return (
       <Animatable.View

@@ -10,6 +10,11 @@ const sideBarData = [
     screen: 'UserProfileScreen',
   },
   {
+    iconName: 'gift',
+    title: 'Refer And Earn',
+    screen: 'ReferAndEarnScreen',
+  },
+  {
     iconName: 'logout',
     title: 'Log Out',
     screen: '',

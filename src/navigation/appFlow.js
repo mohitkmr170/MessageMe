@@ -15,6 +15,7 @@ import {
   SignUp,
   Chat,
   Contact,
+  ReferAndEarn,
 } from '../screens';
 import {COLOR} from '../config/color';
 
@@ -76,6 +77,9 @@ const AppStackNavigator = createStackNavigator(
     },
     ContactScreen: {
       screen: Contact,
+    },
+    ReferAndEarnScreen: {
+      screen: ReferAndEarn,
     },
   },
   {

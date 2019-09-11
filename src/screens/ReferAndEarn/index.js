@@ -6,9 +6,10 @@ import {
   Image,
   Clipboard,
   Alert,
+  Share,
 } from 'react-native';
 import {styles} from './styles';
-import {Header} from '../../components';
+import {Header, Button} from '../../components';
 import {referAndEarnBanner} from '../../assets';
 import {appConstants} from '../../constants/appConstants';
 import {COLOR} from '../../config/color';
@@ -29,6 +30,25 @@ export class ReferAndEarn extends React.Component {
     this.refs.toast.show('Copied to clipboard!');
     //To read from clipboard
     // const referralCode = await Clipboard.getString();
+  };
+
+  handleShare = async () => {
+    try {
+      const result = await Share.share({
+        message: 'Sample Share Intent for testing!',
+      });
+      if (result.action === Share.sharedAction) {
+        if (result.activityType) {
+          console.log('shared with activity type of result.activityType');
+        } else {
+          console.log('shared');
+        }
+      } else if (result.action === Share.dismissedAction) {
+        console.log('dismissed');
+      }
+    } catch (error) {
+      console.log(error.message);
+    }
   };
 
   render() {
@@ -85,6 +105,7 @@ export class ReferAndEarn extends React.Component {
             </TouchableOpacity>
           </View>
         </View>
+        <Button buttonText="Share" onPress={() => this.handleShare()} />
         <Toast
           ref="toast"
           opacity={0.8}

@@ -13,6 +13,8 @@ import {Header} from '../../components';
 import {COLOR} from '../../config/color';
 import * as Animatable from 'react-native-animatable';
 import {appConstants} from '../../constants/appConstants';
+import {styles} from './styles';
+import Icon from 'react-native-vector-icons/AntDesign';
 
 const W = appConstants.screenWidth / 2;
 export class Home extends React.Component {
@@ -115,16 +117,7 @@ export class Home extends React.Component {
               animation="fadeIn"
               easing="ease-in-circ"
               duration={300}
-              style={{
-                flex: 1,
-                position: 'absolute',
-                top: 0,
-                bottom: 0,
-                left: 0,
-                right: 0,
-                backgroundColor: COLOR.transparent,
-                zIndex: 1,
-              }}>
+              style={styles.overayImage}>
               <TouchableOpacity
                 style={{
                   flex: 1,
@@ -152,6 +145,11 @@ export class Home extends React.Component {
             renderItem={({item, index}) => this.returnItem(item, index)}
           />
         </View>
+        <TouchableOpacity
+          onPress={() => this.props.navigation.navigate('ContactScreen')}
+          style={styles.contactIconContainer}>
+          <Icon name="contacts" size={24} color={COLOR.white} />
+        </TouchableOpacity>
       </View>
     );
   }

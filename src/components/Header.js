@@ -32,7 +32,11 @@ export class Header extends React.Component {
           </Text>
         )}
         <TouchableOpacity>
-          <Icon name="wechat" size={24} color={COLOR.white} />
+          <Icon
+            name={this.props.search ? 'search1' : 'wechat'}
+            size={24}
+            color={COLOR.white}
+          />
         </TouchableOpacity>
       </ImageBackground>
     );

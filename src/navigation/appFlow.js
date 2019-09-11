@@ -1,12 +1,21 @@
 import React from 'react';
 import {Easing, Dimensions, Image} from 'react-native';
 import Icon from 'react-native-vector-icons/Entypo';
+import Icons from 'react-native-vector-icons/AntDesign';
 import {createAppContainer, create} from 'react-navigation';
 import {createStackNavigator} from 'react-navigation-stack';
 import {createDrawerNavigator} from 'react-navigation-drawer';
 import {createBottomTabNavigator} from 'react-navigation-tabs';
 
-import {Login, Home, SideBar, UserProfile, SignUp, Chat} from '../screens';
+import {
+  Login,
+  Home,
+  SideBar,
+  UserProfile,
+  SignUp,
+  Chat,
+  Contact,
+} from '../screens';
 import {COLOR} from '../config/color';
 
 const TabNavigator = createBottomTabNavigator(
@@ -14,8 +23,15 @@ const TabNavigator = createBottomTabNavigator(
     Home: {
       screen: Home,
       navigationOptions: {
-        tabBarLabel: 'Home',
-        tabBarIcon: () => <Icon name="home" size={24} />,
+        tabBarLabel: 'Chat',
+        tabBarIcon: () => <Icon name="chat" size={24} />,
+      },
+    },
+    Contact: {
+      screen: Contact,
+      navigationOptions: {
+        tabBarLabel: 'Contact',
+        tabBarIcon: () => <Icons name="contacts" size={24} />,
       },
     },
     User: {
@@ -57,6 +73,9 @@ const AppStackNavigator = createStackNavigator(
     },
     ChatScreen: {
       screen: Chat,
+    },
+    ContactScreen: {
+      screen: Contact,
     },
   },
   {

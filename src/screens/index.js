@@ -6,3 +6,4 @@ export * from './SignUp';
 export * from './Chat';
 export * from './Contacts';
 export * from './ReferAndEarn';
+export * from './SMS';

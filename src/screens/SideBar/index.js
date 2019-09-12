@@ -15,6 +15,11 @@ const sideBarData = [
     screen: 'ReferAndEarnScreen',
   },
   {
+    iconName: 'mail',
+    title: 'Send Message',
+    screen: 'SMSScreen',
+  },
+  {
     iconName: 'logout',
     title: 'Log Out',
     screen: '',

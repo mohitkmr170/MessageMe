@@ -37,6 +37,8 @@ pod 'Firebase/Database'
 
   # pod 'RNFirebase', :path => '../node_modules/react-native-firebase'
 
+  pod 'react-native-sms', :path => '../node_modules/react-native-sms'
+
   target 'MessageMeTests' do
     inherit! :search_paths
     # Pods for testing

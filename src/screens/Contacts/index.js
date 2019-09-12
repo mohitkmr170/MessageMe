@@ -7,6 +7,7 @@ import {
   Image,
   TouchableOpacity,
   Alert,
+  TextInput,
 } from 'react-native';
 import {styles} from './styles';
 import {Header, Button} from '../../components';
@@ -27,6 +28,8 @@ class UnconnectedContact extends React.Component {
       contactList: [],
       loading: true,
       showContactDetail: null,
+      search: false,
+      searchText: '',
     };
   }
 
@@ -74,26 +77,65 @@ class UnconnectedContact extends React.Component {
     this.setState({showContactDetail: false});
   };
 
+  handleRightButton = () => {
+    this.setState({search: !this.state.search});
+  };
+
+  handleSearch = val => {
+    this.setState({searchText: val});
+  };
+
+  getContact = contactTemp => {
+    if (this.state.search) {
+      let searchContact = contactTemp.filter(item =>
+        item.name.includes(this.state.searchText),
+      );
+      return searchContact;
+    } else return contactTemp;
+  };
+
   render() {
     const {getContactsResponse} = this.props;
-    const contacts = get(getContactsResponse, 'data', []);
+    const contactTemp = get(getContactsResponse, 'data', []);
+    const contacts = this.getContact(contactTemp);
     return (
       <View style={styles.mainContainer}>
         <Header
           headerText="Select Contact"
           search={true}
           onBackPress={() => this.props.navigation.goBack()}
+          handleRightButton={() => this.handleRightButton()}
         />
-        <Text
-          style={{
-            textAlign: 'center',
-            fontSize: 24,
-            marginTop: 12,
-            color: COLOR.grayMain,
-            marginBottom: 8,
-          }}>
-          Contacts on MessageMe!
-        </Text>
+        {this.state.search ? (
+          <View>
+            <TextInput
+              autoCorrect={false}
+              autoFocus
+              style={{
+                width: '94%',
+                fontSize: 18,
+                padding: 12,
+                borderColor: COLOR.grayMain,
+                borderWidth: 1,
+                borderRadius: 8,
+                marginTop: 12,
+                marginHorizontal: 12,
+              }}
+              onChangeText={val => this.handleSearch(val)}
+            />
+          </View>
+        ) : (
+          <Text
+            style={{
+              textAlign: 'center',
+              fontSize: 24,
+              marginTop: 12,
+              color: COLOR.grayMain,
+              marginBottom: 8,
+            }}>
+            Contacts on MessageMe!
+          </Text>
+        )}
         {!this.state.loaded && contacts ? (
           <ScrollView
             contentContainerStyle={{

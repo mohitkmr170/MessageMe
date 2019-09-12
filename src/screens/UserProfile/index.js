@@ -7,7 +7,7 @@ import {
   Dimensions,
   ScrollView,
 } from 'react-native';
-import {Header} from '../../components';
+import {Header, SnackBar} from '../../components';
 import firebase from 'react-native-firebase';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Icons from 'react-native-vector-icons/AntDesign';
@@ -24,6 +24,7 @@ class UnconnectedUserProfile extends React.Component {
     super(props);
     this.state = {
       loading: true,
+      showNotificationSnackBar: false,
     };
   }
 
@@ -39,6 +40,13 @@ class UnconnectedUserProfile extends React.Component {
   handleBackButton = () => {
     this.props.navigation.goBack();
   };
+
+  handleRightButton = () => {
+    this.setState({
+      showNotificationSnackBar: !this.state.showNotificationSnackBar,
+    });
+  };
+
   render() {
     const {getUserResponse} = this.props;
     return (
@@ -46,7 +54,27 @@ class UnconnectedUserProfile extends React.Component {
         <Header
           headerText="Profile"
           onBackPress={() => this.handleBackButton()}
+          handleRightButton={() => this.handleRightButton()}
         />
+        {this.state.showNotificationSnackBar && (
+          <View
+            style={{
+              zIndex: 1,
+              flex: 1,
+              position: 'absolute',
+              top: 52,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              backgroundColor: COLOR.transparent,
+            }}>
+            <SnackBar
+              clearNotification={() =>
+                this.setState({showNotificationSnackBar: false})
+              }
+            />
+          </View>
+        )}
         <KeyboardAwareView animated={true}>
           <ScrollView>
             {!this.state.loading ? (

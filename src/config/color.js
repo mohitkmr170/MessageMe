@@ -4,4 +4,5 @@ export const COLOR = {
   white: '#fff',
   light_voilet: '#AD81F5',
   transparent: 'rgba(52, 52, 52, 0.8)',
+  black: '#000',
 };

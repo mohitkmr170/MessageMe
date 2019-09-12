@@ -9,7 +9,7 @@ import {
   TouchableWithoutFeedback,
 } from 'react-native';
 import firebase from 'react-native-firebase';
-import {Header} from '../../components';
+import {Header, SnackBar} from '../../components';
 import {COLOR} from '../../config/color';
 import * as Animatable from 'react-native-animatable';
 import {appConstants} from '../../constants/appConstants';
@@ -23,6 +23,7 @@ export class Home extends React.Component {
     this.state = {
       users: [],
       imageView: false,
+      showNotificationSnackBar: false,
     };
   }
 
@@ -106,10 +107,39 @@ export class Home extends React.Component {
     );
   };
 
+  handleRightButton = () => {
+    this.setState({
+      showNotificationSnackBar: !this.state.showNotificationSnackBar,
+    });
+  };
+
   render() {
     return (
       <View style={{flex: 1}}>
-        <Header headerText="Home" onBackPress={() => this.handleBackButton()} />
+        <Header
+          headerText="Home"
+          onBackPress={() => this.handleBackButton()}
+          handleRightButton={() => this.handleRightButton()}
+        />
+        {this.state.showNotificationSnackBar && (
+          <View
+            style={{
+              zIndex: 1,
+              flex: 1,
+              position: 'absolute',
+              top: 52,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              backgroundColor: COLOR.transparent,
+            }}>
+            <SnackBar
+              clearNotification={() =>
+                this.setState({showNotificationSnackBar: false})
+              }
+            />
+          </View>
+        )}
         <View style={{flex: 1}}>
           {this.state.imageView && (
             <Animatable.View

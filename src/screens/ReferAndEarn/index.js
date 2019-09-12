@@ -9,7 +9,7 @@ import {
   Share,
 } from 'react-native';
 import {styles} from './styles';
-import {Header, Button} from '../../components';
+import {Header, Button, SnackBar} from '../../components';
 import {referAndEarnBanner} from '../../assets';
 import {appConstants} from '../../constants/appConstants';
 import {COLOR} from '../../config/color';
@@ -22,6 +22,7 @@ export class ReferAndEarn extends React.Component {
     super(props);
     this.state = {
       referralCode: 'MsgMe56',
+      showNotificationSnackBar: false,
     };
   }
 
@@ -51,13 +52,39 @@ export class ReferAndEarn extends React.Component {
     }
   };
 
+  handleRightButton = () => {
+    this.setState({
+      showNotificationSnackBar: !this.state.showNotificationSnackBar,
+    });
+  };
+
   render() {
     return (
       <View style={styles.mainContainer}>
         <Header
           headerText="Refer And Earn"
           onBackPress={() => this.props.navigation.goBack()}
+          handleRightButton={() => this.handleRightButton()}
         />
+        {this.state.showNotificationSnackBar && (
+          <View
+            style={{
+              zIndex: 1,
+              flex: 1,
+              position: 'absolute',
+              top: 52,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              backgroundColor: COLOR.transparent,
+            }}>
+            <SnackBar
+              clearNotification={() =>
+                this.setState({showNotificationSnackBar: false})
+              }
+            />
+          </View>
+        )}
         <Image
           source={referAndEarnBanner}
           style={{width: W, height: H / 4}}

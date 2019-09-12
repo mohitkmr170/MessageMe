@@ -31,12 +31,28 @@ export class Header extends React.Component {
             {this.props.headerText}
           </Text>
         )}
-        <TouchableOpacity>
+        <TouchableOpacity onPress={this.props.handleRightButton}>
           <Icon
             name={this.props.search ? 'search1' : 'wechat'}
             size={24}
             color={COLOR.white}
           />
+          {!this.props.search && (
+            <View
+              style={{
+                position: 'absolute',
+                left: 10,
+                bottom: 16,
+                backgroundColor: COLOR.primary,
+                height: 20,
+                width: 20,
+                borderRadius: 10,
+                justifyContent: 'center',
+                alignItems: 'center',
+              }}>
+              <Text style={{color: COLOR.white, fontWeight: 'bold'}}>3</Text>
+            </View>
+          )}
         </TouchableOpacity>
       </ImageBackground>
     );

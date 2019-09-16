@@ -22,22 +22,18 @@ target 'MessageMe' do
   pod 'React-jsiexecutor', :path => '../node_modules/react-native/ReactCommon/jsiexecutor'
   pod 'React-jsinspector', :path => '../node_modules/react-native/ReactCommon/jsinspector'
   pod 'yoga', :path => '../node_modules/react-native/ReactCommon/yoga'
-  pod 'react-native-contacts', :path => '../node_modules/react-native-contacts'
   pod 'DoubleConversion', :podspec => '../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec'
   pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
 
-  pod 'RNGestureHandler', :path => '../node_modules/react-native-gesture-handler'
   # Required by RNFirebase
 pod 'Firebase/Core', '~> 6.3.0'
-pod 'RNFirebase', :path => '../node_modules/react-native-firebase/ios'
 pod 'Firebase/Auth'
 pod 'Firebase/Database'
 
 
   # pod 'RNFirebase', :path => '../node_modules/react-native-firebase'
 
-  pod 'react-native-sms', :path => '../node_modules/react-native-sms'
 
   target 'MessageMeTests' do
     inherit! :search_paths

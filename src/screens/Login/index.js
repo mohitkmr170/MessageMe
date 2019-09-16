@@ -48,14 +48,19 @@ export class Login extends React.Component {
   handleLoginPress = () => {
     const {isValid, phoneNumber, isChecked} = this.state;
     if (phoneNumber.length === 10 && isChecked) {
+      console.log('clicked');
+
       //
       firebase
         .auth()
         .signInWithPhoneNumber('+91' + phoneNumber)
         .then(confirmResult => {
+          console.log(confirmResult, 'res');
           this.setState({confirmResult: confirmResult, isValid: true});
         })
-        .catch(err => {});
+        .catch(err => {
+          console.log(err, 'err');
+        });
       //
     } else this.refs.toast.show('Invalid entry!');
   };

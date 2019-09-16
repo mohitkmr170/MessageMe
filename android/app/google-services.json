@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "981978226078",
+    "firebase_url": "https://messageme-59576.firebaseio.com",
+    "project_id": "messageme-59576",
+    "storage_bucket": "messageme-59576.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:981978226078:android:935aa768ff1e5820c00a8f",
+        "android_client_info": {
+          "package_name": "com.messageme"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "981978226078-693o2iqcttttii7cbikarp1ivimmtbtv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.messageme",
+            "certificate_hash": "1da85f257ae447dd6dc3ef5fec86dae7635cabb7"
+          }
+        },
+        {
+          "client_id": "981978226078-gcr862aos00ctovlogtdifkg9s77bgif.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCbe0s45AyloHfEsZtO53it_RETVGtmBXc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "981978226078-gcr862aos00ctovlogtdifkg9s77bgif.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "981978226078-1qoiim8gmnr83nkdm35gekakffmf8e2p.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "org.reactjs.native.example.MessageMe"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

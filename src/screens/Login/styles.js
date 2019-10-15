@@ -21,7 +21,6 @@ export const styles = StyleSheet.create({
     borderRadius: 8,
   },
   phoneInputContainer: {
-    borderBottomWidth: 1,
     fontSize: 18,
     paddingVertical: 4,
     width: '70%',

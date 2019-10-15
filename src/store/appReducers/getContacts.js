@@ -32,7 +32,10 @@ class GetContacts extends AppStoreData {
                 const phoneNumber = this.getPhoneNumber(
                   get(item, 'phoneNumbers[0].number', null),
                 );
-                if (phoneNumber === get(snap.val()[key], 'phone', null)) {
+                if (
+                  phoneNumber === get(snap.val()[key], 'phone', null) &&
+                  key !== firebase.auth().currentUser.uid
+                ) {
                   contactList.push(snap.val()[key]);
                 }
                 if (contacts.length - 1 === index) {

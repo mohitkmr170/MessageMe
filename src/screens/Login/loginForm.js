@@ -10,7 +10,7 @@ import {
   Easing,
   Dimensions,
 } from 'react-native';
-import {CheckBox} from '../../components';
+import {CheckBox, TextCustom} from '../../components';
 import {styles} from './styles';
 import Toast, {DURATION} from 'react-native-easy-toast';
 import {COLOR} from '../../config/color';
@@ -97,30 +97,12 @@ class UnConnectedLoginForm extends React.Component {
           <View style={styles.topContanier}>
             {!this.state.confirmResult ? (
               <View style={styles.shadowCardContainer}>
-                <Text style={{fontSize: 24}}>Hi there,</Text>
+                <TextCustom t="Hi there," style={{fontSize: 24}} />
                 <Text
                   style={{fontSize: 18, color: COLOR.grayMain, paddingTop: 4}}>
                   Login to your account
                 </Text>
                 <View style={styles.numberContainer}>
-                  {/* <TextInput
-                    placeholder="Mobile number"
-                    style={[
-                      styles.phoneInputContainer,
-                      {
-                        borderBottomColor:
-                          !isValid && phoneNumber.length !== 10
-                            ? COLOR.primary
-                            : COLOR.grayMain,
-                      },
-                    ]}
-                    maxLength={10}
-                    keyboardType="phone-pad"
-                    autoCapitalize="none"
-                    autoCorrect={false}
-                    autoFocus
-                    onChangeText={phoneNumber => this.setState({phoneNumber})}
-                  /> */}
                   <Field
                     name="phoneNumber"
                     component={ReduxFormField}

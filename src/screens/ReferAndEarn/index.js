@@ -7,10 +7,11 @@ import {
   Clipboard,
   Alert,
   Share,
+  Platform,
 } from 'react-native';
 import {styles} from './styles';
 import {Header, Button, SnackBar} from '../../components';
-import {referAndEarnBanner} from '../../assets';
+import {referAndEarnBanner, referAndEarnBannerWebp} from '../../assets';
 import {appConstants} from '../../constants/appConstants';
 import {COLOR} from '../../config/color';
 import Toast, {DURATION} from 'react-native-easy-toast';
@@ -86,7 +87,9 @@ export class ReferAndEarn extends React.Component {
           </View>
         )}
         <Image
-          source={referAndEarnBanner}
+          source={
+            Platform.OS === 'ios' ? referAndEarnBanner : referAndEarnBannerWebp
+          }
           style={{width: W, height: H / 4}}
           resizeMode="cover"
         />

@@ -5,9 +5,10 @@ import {LoginForm} from './loginForm';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 export class Login extends React.Component {
   render() {
+    const {navigation} = this.props;
     return (
       <KeyboardAwareScrollView contentContainerStyle={styles.mainContainer}>
-        <LoginForm />
+        <LoginForm navigation={navigation} />
       </KeyboardAwareScrollView>
     );
   }
